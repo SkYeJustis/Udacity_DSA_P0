@@ -1,0 +1,46 @@
+# Task 0
+The solution required O(1) time complexity because a known array index was being accessed.
+
+The solution required O(1) space complexity because the only space taken is the input array itself and the
+access operation does not require more space.
+
+
+# Task 1
+The solution required O(n) time complexity because the method used to obtain distinct numbers from the data set processed
+each row of the input in the method: process_distinct_numbers. Increasing the items in the input list by n would
+increase the number of steps by approximately n.
+
+The solution can require up to O(n) because a distinct_number list is
+the output and it is possible that the input can contain all distinct numbers.
+
+
+# Task 2
+The solution overall requires O(n) time complexity because the find_index_longest_call method is used to find the index:
+the method involves iterating through the input list row by row and performs a comparison to keep track of the index of
+the row with the greatest duration.
+
+The space complexity of the solution is O(1) because constant values of two variables
+are being updated depending on comparison results.
+
+
+# Task 3
+PART A:
+The solution overall requires O(n log n) time complexity because the find_area_codes_and_mobile_prefixes method is used
+to iterate through each row in the input and check specific conditions for each row, which is O(n) and the final
+.sort() list method is used to ensure lexicographic order, which is O(n log n).
+The solution overall can require O(n) space complexity if each processed row meets the condition and stores that data.
+
+PART B:
+The solution overall requires O(n) time complexity because the method perc_calls_fixed_to_fixed iterates through each
+row of the calls data and checks for a condition.
+
+The solution overall requires O(1) space complexity because constant variables, a counter and size, is kept to allow for
+a mathematical calculation.
+
+
+# Task 4
+The solution overall requires O(n log n) time complexity because the find_possible_telemarketers method is used to
+iterate through each row in the calls data to obtain possible telemarketers, which is O(n) and the list .sort() method
+is used to ensure lexicographic order, which is O (n log n).
+
+The solution overall requires O(n) space complexity because the output list can contain all numbers from the call list.
