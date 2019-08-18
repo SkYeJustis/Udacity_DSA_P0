@@ -15,12 +15,12 @@ the output and it is possible that the input can contain all distinct numbers.
 
 
 # Task 2
-The solution overall requires O(n) time complexity because the find_index_longest_call method is used to find the index:
-the method involves iterating through the input list row by row and performs a comparison to keep track of the index of
-the row with the greatest duration.
+The solution overall requires O(n log n) time complexity because the find_chattiest_phone_number method is used to find
+number that has the longest total duration answering and making calls iterates trough each row, which is O(n),
+and uses the python sorted() method to find the phone number with the longest total duration, which is O(n log n).
 
-The space complexity of the solution is O(1) because constant values of two variables
-are being updated depending on comparison results.
+The space complexity of the solution can be O(n) because a dictionary recording the total duration of all the phone
+numbers is kept and can be unique for each input row if all numbers are unique.
 
 
 # Task 3
@@ -34,7 +34,7 @@ PART B:
 The solution overall requires O(n) time complexity because the method perc_calls_fixed_to_fixed iterates through each
 row of the calls data and checks for a condition.
 
-The solution overall requires O(1) space complexity because constant variables, a counter and size, is kept to allow for
+The solution overall requires O(1) space complexity because constant variables is kept to allow for
 a mathematical calculation.
 
 

@@ -20,8 +20,8 @@ Print messages:
 """
 if __name__ == '__main__':
     first_rec = "First record of texts, {0} texts {1} at time {2}"\
-        .format(texts[0][0], texts[0][1], texts[0][2])
+        .format(*texts[0])
     second_rec = "Last record of calls, {0} calls {1} at time {2}, lasting {3} seconds"\
-        .format(calls[-1][0], calls[-1][1], calls[-1][2], calls[-1][3])
+        .format(*calls[-1])
     print(first_rec)
     print(second_rec)

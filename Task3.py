@@ -76,13 +76,14 @@ def perc_calls_fixed_to_fixed(input):
     :param input:
     :return: string
     """
-    size = len(input)
-    count_fixed_bangalore = 0
+    calls_from_bangalore = 0
+    rec_at_and_from_bangalore = 0
     for row in input:
         if row[0][0:5] == '(080)':
+            calls_from_bangalore += 1
             if row[1][0:5] == '(080)':
-                count_fixed_bangalore += 1
-    return "{0:.2f}".format((count_fixed_bangalore/size)*100)
+                rec_at_and_from_bangalore += 1
+    return "{0:.2f}".format((rec_at_and_from_bangalore/calls_from_bangalore)*100)
 
 def test_functions():
     def test__find_area_codes_and_mobile_prefixes():
@@ -99,10 +100,10 @@ def test_functions():
         test_input = [['(080)33118033', '(080)28952819', '01-09-2016 06:01:12', '186'],
          ['(080)33118032', '(080)28952829', '01-09-2016 06:01:59', '2093'],
          ['(080)33118035', '(080)47410783', '01-09-2016 06:03:51', '1975'],
-         ['(022)934240118', '(022)33118033', '01-09-2016 06:11:23', '1156'],
+         ['(080)934240118', '(022)33118033', '01-09-2016 06:11:23', '1156'],
          ['90087 42537', '(022)35121497', '01-09-2016 06:17:26', '573']]
         perc = perc_calls_fixed_to_fixed(test_input)
-        assert perc == "60.00"
+        assert perc == "75.00"
 
     test__find_area_codes_and_mobile_prefixes()
     test__perc_calls_fixed_to_fixed()
@@ -117,5 +118,6 @@ if __name__ == '__main__':
         print(code)
 
     # Part B
-    msg_b = """{0} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.""".format(perc_calls_fixed_to_fixed(calls))
+    msg_b = """{0} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore."""\
+        .format(perc_calls_fixed_to_fixed(calls))
     print(msg_b)

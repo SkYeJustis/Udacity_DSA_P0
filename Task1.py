@@ -26,14 +26,12 @@ def process_distinct_numbers(input, col_1, col_2, final_output):
     :return:
     """
     for row in input:
-        if row[col_1] not in final_output:
-            final_output.append(row[col_1])
-        if row[col_2] not in final_output:
-            final_output.append(row[col_2])
+        final_output.add(row[col_1])
+        final_output.add(row[col_2])
 
 def test_functions():
     def test__process_distinct_numbers():
-        test_output = []
+        test_output = set()
         test_input = [['12345', '678', None],
                       ['1234', '67890', None],
                       ['123', '6789', None],
@@ -41,7 +39,7 @@ def test_functions():
                       ['12345', '6789', None],
                       ]
         process_distinct_numbers(test_input, 0, 1, test_output)
-        assert test_output == ['12345', '678', '1234', '67890', '123', '6789']
+        assert test_output == {'12345', '678', '1234', '67890', '123', '6789'}
 
     def test__alternative_final_output():
         # Alternative method using set
@@ -51,7 +49,7 @@ def test_functions():
         res.extend([row[1] for row in calls])
 
         # Current method using O(n) processing of reach file row
-        distinct_numbers = []
+        distinct_numbers = set()
         process_distinct_numbers(input=texts, col_1=0, col_2=1, final_output=distinct_numbers)
         process_distinct_numbers(input=calls, col_1=0, col_2=1, final_output=distinct_numbers)
 
@@ -65,7 +63,7 @@ if __name__ == '__main__':
     test_functions()
 
     # Output: all distinct sending/receiving numbers in call + texts
-    distinct_numbers = []
+    distinct_numbers = set()
     process_distinct_numbers(input=texts, col_1=0, col_2=1, final_output=distinct_numbers)
     process_distinct_numbers(input=calls, col_1=0, col_2=1, final_output=distinct_numbers)
 
